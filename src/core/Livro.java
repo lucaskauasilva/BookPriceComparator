@@ -11,11 +11,7 @@ public class Livro implements Comparable<Livro>{
 	}
 
 	/**
-	 *Esse método compara o preço de dois livros, e se a diferença de preço for menor que um determinado valor limite (0.001), 
-	 *então, o resultado 0 será retornado, indicando que os dois livros têm o mesmo preço. 
-	 *Essa comparação foi feita dessa forma pois a comparação de valores de ponto flutuante tem algumas limitações no computador. 
-	 *Se o preço do livro corrente (atual) for maior do que o preço do livro passado como argumento, então, o resultado 1 será retornado, 
-	 *caso contrário, se o preço do livro corrente for menor do que o preço do livro passado como argumento, o resultado -1 será retornado.  
+	 *Esse método compara o preço de dois livros através da diferença entre seus valores.
 	 *@return 0 se ambos os livros possuirem o mesmo preço.
 	 *@return 1 se o livro passado como argumento for mais barato do que o livro corrente.
 	 *@return -1 se o livro corrente for mais barato do que o livro passado como argumento
@@ -24,10 +20,13 @@ public class Livro implements Comparable<Livro>{
 	public int compareTo(Livro livro) {
 		
 		if (Math.abs(custo - livro.custo) < 0.001) {
+			System.out.printf("Ambos os livros '%s' e '%s' possuem o mesmo valor. ", this.nome, livro.nome);
 			return 0;
 		} else if (custo > livro.custo) {
+			System.out.printf("O Livro '%s' está mais barato do que o Livro '%s'. ", livro.nome, this.nome);
 			return 1;
 		} else {
+			System.out.printf("O Livro '%s' está mais barato do que o Livro '%s'. ", this.nome, livro.nome);
 			return -1;
 		}
 	}
